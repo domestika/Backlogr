@@ -4,12 +4,6 @@ require 'rexml/document'
 require 'rexml/xpath'
 require 'rexml/element'
 
-# [:development, :production].each do |env|
-#   configure env do
-#     Sinatra::StaticEvent::MIME_TYPES['js'] ||= 'text/javascript'
-#   end
-# end
-
 helpers do
   def load_backlog
     REXML::Document.new(File.read("backlogs/#{@backlog}.xml"))
