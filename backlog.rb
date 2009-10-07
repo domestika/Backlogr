@@ -66,7 +66,7 @@ get '/:backlog' do
   end
 end
 
-post '/:backlog/update' do
+put '/:backlog' do
   @backlog = params[:backlog]
   if File.exist?("backlogs/#{@backlog}.xml")
     update_backlog
