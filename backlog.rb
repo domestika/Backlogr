@@ -43,7 +43,12 @@ helpers do
   end
   
   def max_id(doc)
-    doc.root.elements.inject(0) {|max_id,i| cur_id = i.attribute('id').to_s.to_i; cur_id > max_id ? cur_id : max_id}
+    max_id = 0
+    doc.root.elements.each do |element|
+      id = element.attribute('id').to_s.to_i
+      max_id = id if id > max_id
+    end
+    max_id
   end  
 end  
 
@@ -80,7 +85,7 @@ post '/:backlog' do
   else 
     doc = load_backlog
     item = doc.root.add_element 'item'
-    item.add_attribute('id', max_id(doc) + 1)
+    item.add_attribute('id', (max_id(doc) + 1).to_s)
     params[:importance] = params[:importance].to_i
     [:importance, :name, :notes, :demo, :estimate].each do |attribute|
       el = item.add_element(attribute.to_s)
