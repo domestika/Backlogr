@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Backlog - <%= @title %></title>
+
+	<link rel="stylesheet" href="/screen.css" type="text/css" media="screen" charset="utf-8" />
+
+	<link rel="stylesheet" href="/print.css" type="text/css" media="print" charset="utf-8" />
+	
+	<script src="/jquery.js"></script>
+	
+	<script src="/backlog.js"></script>
+	
+</head>
+<body id="<%= @backlog %>">
+<div id="wrap">
+<h1>Product Backlog</h1>
+<table border="0" cellspacing="0" cellpadding="0" summary="Product Backlog">
+  <caption><%= @title %></caption>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Importance</th>
+      <th>Name</th>
+      <th>Notes</th>
+      <th>How to Demo</th>
+      <th>Estimate</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each_with_index do |item, index| %>
+      <tr <%= 'class="even"' unless index % 2 == 0 %> id="item-row-<%= item[:id] %>">
+        <% [:id, :importance, :name, :notes, :demo, :estimate].each do |attribute| %>
+          <td class="<%= attribute %> attribute">
+            <%= item[attribute] %>
+          </td>
+        <% end %>
+        <td class="actions">
+          <form action="/<%= @backlog %>/delete/<%= item[:id] %>" method="post" accept-charset="utf-8">
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+      </tr>        
+    <% end if @items %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="7"><a href="#"class="add_item_button">Add backlog item</a></td>
+    </tr>
+  </tfoot>
+</table>
+<div id="cover" <%= 'class="hidden"' unless @error_message %>></div>
+<div id="add_item_form" <%= 'class="hidden"' unless @error_message %>>
+<form id="item-form" action="/<%= @backlog %>" method="post" accept-charset="utf-8">
+  <% if @error_message %>
+    <fieldset id="error_message">
+      <%= @error_message %>
+    </fieldset>
+  <% end %>
+  <fieldset>
+    <legend id="form-title">Add item</legend>
+    <p><label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="<%= params[:name] %>"/>
+    <p><label for="importance">Importance:</label>
+    <input type="text" id="importance" name="importance" value="<%= params[:importance] %>"/></p>
+    <p><label for="notes">Notes:</label>
+    <textarea id="notes" name="notes"><%= params[:notes] %></textarea></p>
+    <p><label for="demo">How to Demo:</label>
+    <textarea id="demo" name="demo"><%= params[:demo] %></textarea></p>    
+    <p><label for="estimate">Estimate:</label>
+    <input type="text" id="estimate" name="estimate" value="<%= params[:estimate] %>"/></p>
+  </fieldset>
+  <fieldset id="actionbuttons">
+    <input type="submit" value="Add it" />
+    <input id="cancel_button" type="reset" value="Cancel" />
+  </fieldset>
+</form>
+</div>
+</div>
+</body>
+</html>

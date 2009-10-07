@@ -1,0 +1,122 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+h1, caption, thead, tfoot, td.actions, #cover, #add_item_form, .add_item_button {
+  display: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+tbody tr {
+  display: block;
+  width: 16.5cm;
+  height: 12cm;
+  border: 0.01cm solid black;
+  position: relative;
+  margin-bottom: 1cm;
+}
+
+tr td.id {
+  position: absolute;
+  top: 0.1cm;
+  left: 0.1cm;
+}
+
+tr td.id:before {
+  content: "Backlog id #";
+}
+
+tr td.name {
+  position: absolute;
+  top: 1cm;
+  left: 1cm;
+  font-size: 18pt;
+}
+
+tr td.importance {
+  position: absolute;
+  top: 1cm;
+  right: 1cm;
+  border: 0.03cm solid black;
+  width: 2.4cm;
+  height: 2.8cm;
+  text-align: right;
+  font-size: 24pt;
+  padding: 0.1cm 0.3cm;
+}
+
+tr td.importance:before {
+  content: "Importance:";
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 0.3cm;
+}
+
+tr td.estimate {
+  position: absolute;
+  top: 4.5cm;
+  right: 1cm;
+  border: 0.03cm solid black;
+  width: 2.4cm;
+  height: 2.8cm;
+  text-align: right;
+  font-size: 24pt;
+  padding: 0.1cm 0.3cm;
+}
+
+tr td.estimate:before {
+  content: "Estimate:";
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 0.3cm;
+}
+
+
+tr td.notes {
+  position: absolute;
+  top: 4.5cm;
+  left: 1cm;
+  border: 0.03cm solid black;  
+  height: 2.8cm;
+  width: 10.2cm;  
+  padding: 0.1cm 0.3cm;
+}
+
+tr td.notes:before {
+  content: "Notes:";
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 0.3cm;
+}
+
+tr td.demo {
+  position: absolute;
+  top: 8cm;
+  left: 1cm;
+  border: 0.03cm solid black;  
+  height: 2.8cm;
+  width: 10.2cm;  
+  padding: 0.1cm 0.3cm;
+}
+
+tr td.demo:before {
+  content: "How to Demo:";
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 0.3cm;
+}
+
+tr.even {
+  page-break-after: always;
+}

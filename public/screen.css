@@ -1,0 +1,248 @@
+
+/* Body and Fonts */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: medium "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+	color: #333;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#wrap {
+	margin: 0 auto;
+	padding: 1em;
+	min-width: 780px;
+}
+
+h1 {
+	font-size: 200%;
+	color: #334b47;
+	text-align: right;
+	border-bottom: 1px solid #eee;
+}
+
+a:link {
+	color: #427644;
+}
+
+a.edit-link {
+ color: black;
+ display: block;
+ text-decoration: none;
+ padding: 0 0.5em;
+}
+
+a.edit-link:hover {
+  background: #ECF3FB;
+}
+
+
+/* Tables */
+
+td.id, td.importance, td.estimate {
+  text-align: center;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	}
+
+th {
+	padding: 0.5em;
+	text-align: left;
+	}
+	
+thead tr {
+  border-top: 2px solid #637a7d;
+  background: #708a8e;
+  color: #eee;
+}
+
+tr.even {
+  background: #f1f1de; 
+}
+
+tr.add_item_button {
+	 
+}
+
+tfoot tr, tr.action {
+	text-align: left;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 0.6em 0.4em;
+    font-size: 90%;
+    }
+    
+td.name {
+    font-weight: bold;
+}
+
+tr td:hover {
+  background: #f2fbec;
+  cursor: pointer;
+    color: #000;
+}
+
+tfoot td:hover {
+  background: none;
+}
+
+
+td+td {
+	border-left: 1px solid #ddd;
+	text-align: left;
+	}
+	
+tfoot td {
+	border-bottom: 2px solid #637a7d;
+}
+	
+caption {
+	font-size: 150%;
+	margin: 8px 0;
+	background: f3f3f3;
+	text-align: left;
+}
+
+
+/* Dialog */
+#cover {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #222;
+  opacity: 0.75;
+}
+
+a.add_item_button {
+  display: inline;
+  	background: transparent url(img/add.png) no-repeat left center;
+  	padding: 2px 2px 2px 21px;
+  	font-size: 120%;
+  	text-decoration: none;
+  	font-weight: bold;
+}
+
+a.add_item_button:hover {
+  color: #1f3820;
+  background: transparent url(img/add-hover.png) no-repeat left center;  
+}
+  
+#add_item_form {
+  z-index: 11;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#add_item_form form {
+  width: 560px;
+  margin: 40px auto;
+  padding-top: 1px;
+  padding-bottom: 8px;
+  background: #fff;
+  border-top: 8px solid #637a7d;
+  border-bottom: 2px solid #637a7d;
+}
+
+#add_item_form form fieldset {
+  margin: 32px 12px 12px;
+  border: 2px solid #ddd;
+  background: #f2fbec;
+  padding: 0.8em;
+}
+
+#add_item_form form fieldset#actionbuttons {
+	margin-top: 0;
+	border: 0;
+	background: none;
+	padding: 0;
+	font-weight: bold;
+}
+
+#add_item_form form p {
+	margin-bottom: 12px;
+}
+
+#add_item_form form legend {
+	display: block;
+	font-size: 140%;
+	background: transparent;
+	margin: -27px 0 8px -14px;
+	border-bottom: 2px solid #ddd;
+	padding: 4px;
+	color: #1f3820;
+	text-transform: uppercase;
+}
+
+#add_item_form form label {
+	display: block;
+	margin-bottom: 4px;
+	font-size: 95%;
+	color: #555;
+}
+
+#add_item_form form input[type='text'], #add_item_form form textarea {
+	padding: 4px;
+	font: 120% Verdana, sans-serif;
+}
+
+#add_item_form form input[type='text'] {
+  width: 350px;
+}
+
+#add_item_form form input[type='text']#importance, #add_item_form form input[type='text']#estimate {
+	width: 150px;
+}
+
+#add_item_form form textarea {
+  width: 480px;
+  height: 100px;
+}
+
+#cover.hidden, #add_item_form.hidden {
+/*  visibility: hidden;*/
+  display: none;
+}
+
+#add_item_form form input[type='submit'],
+#add_item_form form input[type='reset'] {
+	font-size: 100%;
+	padding: 0.4em 0.8em 0.2em;
+	font-family: helvetica;
+	color: #444;
+}
+
+#add_item_form form input[type='submit'] {
+	font-weight: bold;
+	color: #1f3820;;
+}
+
+/* Error messages */
+#error_message {
+  border: 1px solid #FB7A31;
+  background: #FFC;
+  width: 90%;
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px;
+}
+
